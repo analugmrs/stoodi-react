@@ -7,6 +7,10 @@ i {
     margin-top:1rem;
 }
 
+.feedback b {
+    display: block;
+}
+
 li p, li {
     list-style-type: none;
     margin-bottom: 0 !important;
@@ -56,6 +60,14 @@ input[type='radio']:checked + .option {
 
 input[type='radio']:checked {
     border: 1px solid #084bfb;
+}
+
+.wrong input[type='radio']:checked + .option {
+    color: red;
+}
+
+.wrong input[type='radio']:checked {
+    border: 1px solid red;
 }
 
 #value {
