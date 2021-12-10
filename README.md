@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Desafio front-end do Stoodi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Olá!
 
-## Available Scripts
+Este é um teste para trabalhar como pessoa desenvolvedora front-end no Stoodi.
 
-In the project directory, you can run:
+## Autora
 
-### `npm start`
+- Nome: Ana Luíza Guimarães
+- E-mail: contato@analugmrs.com
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Como rodar
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Fazer o download do projeto e, em seu diretório, executar `npm start`. Isso executará o app em modo de desenvolvimento.
 
-### `npm test`
+> **Atenção!** Se o navegador não abrir uma página automaticamente, abra [http://localhost:3000](http://localhost:3000) para visualizá-lo no navegador.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Observações
 
-### `npm run build`
+###### Não consegui fazer a tempo: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [ ] Acertou a resposta: a linha da alternativa selecionada deve ficar verde e o botão deve ter o texto "próximo". Esse botão não tem nenhuma funcionalidade (*imagem 3*);
+- [ ] Errou a resposta: a linha da alternativa selecionada deve ficar vermelha e o botão deve ter o texto "refazer" (*imagem 4*). Ao clicar nesse botão, a opção selecionada deve ficar desmarcada, o feedback de erro deve sumir e o botão deve ficar desabilitado (exatamente como quando o aluno acessa o exercício pela primeira vez).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Linguagem: HTML, CSS e Javascript
+- Framework: React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Para participar desta parte do processo você deve:
 
-### `npm run eject`
+- [ ] Clonar esse repositório;
+- [ ] Criar uma branch com o nome observando o padrão `desafio-nome-sobrenome` (por exemplo: `desafio-maria-silva`);
+- [ ] Desenvolver a tarefa abaixo na branch que você criou;
+- [x] Colocar no arquivo Readme: seu nome, email, instruções de como rodar o projeto e outras observações que julgar adequadas;
+- [ ] Ao terminar o desenvolvimento, abra um pull request para a branch `main`. Marque o usuário `thiagopadula` como revisor.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Objetivo:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Criar um exercício de múltipla escolha usando HTML, CSS e Javascript. O aluno deve poder responder e saber se sua resposta está certa ou errada, e, se estiver errada, poder tentar novamente.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Composição da tela
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [x] Enunciado da pergunta;
+- [x] Quatro alternativas de resposta;
+- [x] Botão para verificar a resposta;
+- [x] Feedback sobre a resposta do aluno.
 
-## Learn More
+## Layout
+### Imagem 1:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Cenário 1](https://static.stoodi.com.br/frontend-challenge/tela-1.png)
+___
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Imagem 2:
 
-### Code Splitting
+![Cenário 2](https://static.stoodi.com.br/frontend-challenge/tela-2.png)
+___
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Imagem 3:
 
-### Analyzing the Bundle Size
+![Cenário 3](https://static.stoodi.com.br/frontend-challenge/tela-3a.png)
+___
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Imagem 4:
 
-### Making a Progressive Web App
+![Cenário 4](https://static.stoodi.com.br/frontend-challenge/tela-3b.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+___
+## Critérios
 
-### Advanced Configuration
+- [x] Você deve pegar as informações da pergunta dessa API: `https://8zqqb4wng6.execute-api.us-east-1.amazonaws.com/dev/`
+- [x] As alternativas são exclusivas (o aluno não deve responder mais de uma ao mesmo tempo);
+- [x] O botão "verificar resposta" deve estar desabilitado se nenhuma alternativa estiver selecionada (*imagem 1*);
+- [x] O botão "verificar resposta" deve estar habilitado se uma alternativa estiver selecionada (*imagem 2*);
+- [x] Ao clicar em "verificar resposta", o componente deve fazer um POST para `https://8zqqb4wng6.execute-api.us-east-1.amazonaws.com/dev/` com um objeto contendo os seguintes dados:
+    - `exercise_id` (tipo number)
+	- `choice` (tipo string, com a letra da alternativa selecionada)
+- O POST vai retornar uma propriedade `is_correct` que informa se a alternativa enviada era a correta. Se o aluno:
+    - [ ] Acertou a resposta: a linha da alternativa selecionada deve ficar verde e o botão deve ter o texto "próximo". Esse botão não tem nenhuma funcionalidade (*imagem 3*);
+    - [ ] Errou a resposta: a linha da alternativa selecionada deve ficar vermelha e o botão deve ter o texto "refazer" (*imagem 4*). Ao clicar nesse botão, a opção selecionada deve ficar desmarcada, o feedback de erro deve sumir e o botão deve ficar desabilitado (exatamente como quando o aluno acessa o exercício pela primeira vez).
+- [x] A página deve ficar como no layout.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Observações
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [x] Deve-se usar HTML, CSS e Javascript. Fica a seu critério utilizar frameworks, bibliotecas ou pré-processadores, mas, se puder usar React, a gente prefere :)
+- [ ] Escrever testes é um diferencial;
+- [x] A fonte utilizada no layout é a Lato (https://fonts.google.com/specimen/Lato);
+- Avaliaremos qualidade/funcionalidade do seu código e aderência ao layout. Desenvolva como se fosse um código de produção em um time e não uma prova ou script;
+- Estamos à disposição para ajudar com dúvidas ou dificuldades, é só entrar em contato :)
